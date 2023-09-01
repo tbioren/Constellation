@@ -10,17 +10,17 @@ The Constellation Project loads constellations from datafiles (text files). The 
 - You don't have to implement anything with the names of the constellations provided in the datafiles. **Extra credit if you include the names of the constellations near the constellations on the window**
 
 ## The datafiles:
-The datafiles will follow a predetermined format. The format is as follows: A new constellation starts with a name in quotes. Every new line after that describes a star. Each parameter is seperated by commas in this format: star-id,x-coordinate,y-coordinate,size,color-in-hex,[list-of-connected-stars]. An empty line denotes a new constellation. Here's an example:
+The datafiles will follow a predetermined format. The format is as follows: A new constellation starts with a name in quotes. Every new line after that describes a star. Each parameter is seperated by commas in this format: star-id,x-coordinate,y-coordinate,size,color-in-hex,[list-of-connected-stars]. "!!!" denotes the start of a new constellation. Here's an example:
 ```
-"Big Dipper"
-0,0,0,100,"#FFFF00",[1,3]
-1,100,100,"#FFFFFF",[]
-2,0,100,"#FFFFFF",[]
-3,100,0,"#FFFFFF"[]
+!!!"Big Dipper"
+0,100,400,10,"#FFFF00",[1 3]
+1,100,100,50,"#FFFFFF",[]
+2,0,100,64,"#FFFFFF",[]
+3,100,0,128,"#FFFFFF",[]
 
-"Canon Maranda"
-0,0,0,100,"#FFFF00",[1,3]
-1,100,100,"#FFFFFF",[]
-2,0,100,"#FFFFFF",[]
-3,100,0,"#FFFFFF"[]
+!!!"Canon Maranda"
+0,0,0,100,"#FFFF00",[1 3]
+1,100,100,50,"#FFFFFF",[]
+2,0,100,64,"#FFFFFF",[]
+3,100,0,128,"#FFFFFF",[]
 ```

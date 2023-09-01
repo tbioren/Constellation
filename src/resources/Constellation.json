@@ -1,9 +1,0 @@
-{"name":"Big Dipper", "stars":[
-    {"id":0, "x":100, "y":400, "size":10, "color":"#FFFFFF", "connections":[1]},
-    {"id":1, "x":300, "y":450, "size":10, "color":"#FFFFFF", "connections":[2]},
-    {"id":2, "x":345, "y":505, "size":10, "color":"#FFFFFF", "connections":[3]},
-    {"id":3, "x":400, "y":550, "size":10, "color":"#FFFFFF", "connections":[4]},
-    {"id":4, "x":500, "y":575, "size":10, "color":"#FFFFFF", "connections":[5]},
-    {"id":5, "x":475, "y":625, "size":10, "color":"#FFFFFF", "connections":[6]},
-    {"id":6, "x":410, "y":610, "size":10, "color":"#FFFFFF", "connections":[3]}
-]}

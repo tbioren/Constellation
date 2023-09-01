@@ -8,9 +8,15 @@ import javax.swing.JComponent;
 public class Constellation extends JComponent {
     private final Color CONNECTION_COLOR = Color.WHITE;
     private ArrayList<Star> stars;
+    private String name;
 
     public Constellation() {
         stars = new ArrayList<Star>();
+    }
+
+    public Constellation(String name) {
+        this();
+        this.name = name;
     }
 
     public ArrayList<Star> getStars() {
