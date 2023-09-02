@@ -1,10 +1,11 @@
 import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Point;
 import java.util.ArrayList;
-import javax.swing.JComponent;
 
-// this class hopefully will draw lines between the stars and call the drawOn() method of each star
+/**
+ * Holds stars and draws them.
+ */
 public class Constellation {
     private final Color CONNECTION_COLOR = Color.WHITE;
     private ArrayList<Star> stars;
@@ -27,10 +28,18 @@ public class Constellation {
         stars.add(star);
     }
 
+    private Point getAverageStarLocation() {
+        int xAccumulator=0, yAccumulator=0;
+        for(Star s : stars) {
+            xAccumulator += s.getX();
+            yAccumulator += s.getY();
+        }
+        return new Point(xAccumulator/stars.size(), yAccumulator/stars.size());
+    }
+
     public void paintComponent(Graphics2D g2) {
         // Draw each star by calling their drawOn() methods
         for(Star star : stars) {
-            // TODO: implement drawOn() method
             star.drawOn(g2);
         }
 
@@ -42,6 +51,8 @@ public class Constellation {
                 g2.drawLine((int) star.getX(), (int) star.getY(), (int) connectedStar.getX(), (int) connectedStar.getY());
             }
         }
+        Point avgPoint = getAverageStarLocation();
+        g2.drawString(name,(int) avgPoint.getX(), (int) avgPoint.getY());
     }
 
     private Star getStarByID(int id) {

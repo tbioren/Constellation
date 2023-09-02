@@ -1,6 +1,10 @@
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+
+/**
+ * Is a star. It gets drawn on the screen.
+ */
 public class Star {
     private static final int STAR_SPOKES = 6;
     private int id;
@@ -13,6 +17,9 @@ public class Star {
     public Star() {
     }
 
+    /**
+     * Prints out the properties of the star to the console.
+     */
     public String toString() {
         String output = "Star [id=" + id + ", x=" + x + ", y=" + y + ", size=" + size + ", color=" + color + ", [";
         for(int i : connections) {
@@ -22,6 +29,10 @@ public class Star {
         return output;
     }
 
+    /**
+     * Draws the star to the screen.
+     * @param g2 Grahpics2D object to be passed
+     */
     public void drawOn(Graphics2D g2) {
         g2.setColor(color);
         for(int i=0; i < STAR_SPOKES; i++) {
