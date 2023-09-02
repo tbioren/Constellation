@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import javax.swing.JComponent;
 
 // this class hopefully will draw lines between the stars and call the drawOn() method of each star
-public class Constellation extends JComponent {
+public class Constellation {
     private final Color CONNECTION_COLOR = Color.WHITE;
     private ArrayList<Star> stars;
     private String name;
@@ -27,9 +27,7 @@ public class Constellation extends JComponent {
         stars.add(star);
     }
 
-    public void paintComponent(Graphics g) {
-        Graphics2D g2 = (Graphics2D) g;
-
+    public void paintComponent(Graphics2D g2) {
         // Draw each star by calling their drawOn() methods
         for(Star star : stars) {
             // TODO: implement drawOn() method

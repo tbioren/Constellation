@@ -2,39 +2,45 @@
  * The file will be preformatted following formatting rules in the readme.md file.
 */
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.concurrent.ArrayBlockingQueue;
 
 import javax.swing.JFrame;
 import java.awt.Color;
 
+/**
+ * Constellation project. This is a project for CSSE220 students. The project should read information from a text file
+ * and draw constellations on screen. 
+ */
 public class App 
 {
+    // TODO: Split main into smaller methods. It's looking like a brick rn
     public static void main( String[] args ) throws FileNotFoundException {
         JFrame frame;
+        // Frame width and height. Change to make window bigger and smaller.
         final int FRAME_WIDTH = 1024;
         final int FRAME_HEIGHT = 1024;
-
-        /*
-        This section reads the provided Constellation.txt file.
-        It does this without an API so it's a little bit complicated.
-        */
+        // Points to constellation file.
         File constellationFile = new File("src/resources/Constellation.txt");
-        // Convert the JSON to a string
+        // Read the file and convert it to a string
         Scanner fr = new Scanner(constellationFile);
         String constellationString = "";
         while(fr.hasNextLine()) constellationString += fr.nextLine() + "\n";
         fr.close();
+        // Split the constellation file string into individual constellations by splitting at "!!!"
         String[] constellationStrings = constellationString.split("!!!");
+        // Create an ArrayList of constellations
         ArrayList<Constellation> constellations = new ArrayList<Constellation>();
-        for(String currStr : constellationStrings) { 
+        // Read constellation information from string and create constellation objects
+        for(String currStr : constellationStrings) {
+            // Only read a string if it isn't empty. I'm doing this because String.split("!!!") leaves some blank strings.
             if(!currStr.isEmpty()) {
+                // Create and name the constellation
                 int firstQuote = currStr.indexOf("\"") + 1;
                 int secondQuote = currStr.indexOf("\"", firstQuote);
                 Constellation currConstellation = new Constellation(currStr.substring(firstQuote, secondQuote));    //Get the name of the constellation
+                // Split the information for stars into individual Strings
                 String[] stars = currStr.substring(secondQuote+1).split("\n");  // Get the next lines
                 for(String starStr : stars) {
                     if(!starStr.isEmpty()) {
@@ -54,8 +60,8 @@ public class App
                         for(String currNum : connectionStr) {
                             if(!currNum.isEmpty()) connections.add(Integer.parseInt(currNum));
                         }
-                        tempStar.setConnections(connections.stream().mapToInt(i -> i).toArray());
-                        currConstellation.addStar(tempStar);
+                        tempStar.setConnections(connections.stream().mapToInt(i -> i).toArray());   // Set the connections of the star
+                        currConstellation.addStar(tempStar);    // Add the star to the constellation
                         System.out.println();
                     }
                 }
@@ -67,9 +73,12 @@ public class App
         frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
         frame.getContentPane().setBackground(Color.BLACK);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // frame.add(constellations.get(1));
         frame.setVisible(true);
+        NightSky ns = new NightSky();
         for(Constellation c : constellations) {
-            frame.add(c);
+            ns.addConstellation(c);
         }
+        frame.add(ns);
     }
 }
