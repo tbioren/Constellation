@@ -16,6 +16,9 @@ import java.awt.Color;
 public class App 
 {
     // TODO: Use message chaining
+    // TODO: The current goal is to create a constellation, add stars to it individually,
+    // then update the attributes of those stars after they're created. Next, I'm gonna
+    // use message chains in the drawing
     public static void main( String[] args ) throws FileNotFoundException {
         JFrame frame;
         // Frame width and height. Change to make window bigger and smaller.
