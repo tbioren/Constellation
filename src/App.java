@@ -22,7 +22,7 @@ public class App
         final int FRAME_WIDTH = 1024;
         final int FRAME_HEIGHT = 1024;
         // Points to constellation file.
-        File constellationFile = new File("src/resources/Constellation.txt");
+        File constellationFile = new File("resources/Constellation.txt");
         // Read the file and convert it to a string
         Scanner fr = new Scanner(constellationFile);
         String constellationString = "";
