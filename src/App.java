@@ -15,7 +15,7 @@ import java.awt.Color;
  */
 public class App 
 {
-    // TODO: Split main into smaller methods. It's looking like a brick rn
+    // TODO: Use message chaining
     public static void main( String[] args ) throws FileNotFoundException {
         JFrame frame;
         // Frame width and height. Change to make window bigger and smaller.
