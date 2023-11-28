@@ -19,6 +19,7 @@ public class App
     // TODO: The current goal is to create a constellation, add stars to it individually,
     // then update the attributes of those stars after they're created. Next, I'm gonna
     // use message chains in the drawing
+    static ArrayList<Constellation> constellations;
     public static void main( String[] args ) throws FileNotFoundException {
         JFrame frame;
         // Frame width and height. Change to make window bigger and smaller.
@@ -34,7 +35,7 @@ public class App
         // Split the constellation file string into individual constellations by splitting at "!!!"
         String[] constellationStrings = constellationString.split("!!!");
         // Create an ArrayList of constellations
-        ArrayList<Constellation> constellations = new ArrayList<Constellation>();
+        constellations = new ArrayList<Constellation>();
         // Read constellation information from string and create constellation objects
         for(String currStr : constellationStrings) {
             // Only read a string if it isn't empty. I'm doing this because String.split("!!!") leaves some blank strings.

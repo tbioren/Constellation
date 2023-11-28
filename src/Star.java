@@ -6,7 +6,7 @@ import java.awt.Graphics2D;
  * Is a star. It gets drawn on the screen.
  */
 public class Star {
-    private static final int STAR_SPOKES = 6;
+    public final int STAR_SPOKES = 6;
     private int id;
     private int x;
     private int y;

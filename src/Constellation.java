@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * Holds stars and draws them.
  */
 public class Constellation {
-    private final Color CONNECTION_COLOR = Color.WHITE;
+    public final Color CONNECTION_COLOR = Color.WHITE;
     private ArrayList<Star> stars;
     private String name;
 
@@ -22,6 +22,23 @@ public class Constellation {
 
     public ArrayList<Star> getStars() {
         return stars;
+    }
+
+    /**
+     * Get a star at an index. Return null if index is out of bounds.
+     * @param index Index of the star
+     * @return Star at given index
+     */
+    public Star getStarAtIndex(int index) {
+        try {
+            return stars.get(index);
+        } catch (IndexOutOfBoundsException e) {
+            return null;
+        }
+    }
+
+    public int size() {
+        return stars.size();
     }
 
     public void addStar(Star star) {
@@ -55,7 +72,7 @@ public class Constellation {
         g2.drawString(name,(int) avgPoint.getX(), (int) avgPoint.getY());
     }
 
-    private Star getStarByID(int id) {
+    public Star getStarByID(int id) {
         for(Star star : stars) {
             if(star.getId() == id) {
                 return star;
